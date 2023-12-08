@@ -4,7 +4,7 @@ import Navbar from "./Shared/Navbar/Navbar";
 
 const App = () => {
   return (
-    <div>
+    <div className="max-w-[1200px] mx-auto">
       <Navbar></Navbar>
       <Outlet></Outlet>
     </div>
