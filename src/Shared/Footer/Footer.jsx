@@ -39,7 +39,7 @@ const Footer = () => {
                     </div>
                 </nav>
             </footer>
-            <footer className="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
+            <footer className="hidden md:flex justify-between footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
                 <aside className="items-center grid-flow-col">
                     <Logo></Logo>
                 </aside>

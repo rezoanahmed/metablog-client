@@ -22,18 +22,18 @@ const Latest = () => {
     }
     return (
         <div className="mt-36">
-            <h1 className="font-bold text-xl mb-4">Latest Posts</h1>
+            <h1 className="font-bold text-xl m-4">Latest Posts</h1>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {
                     posts?.map(element => <>
                         <div
-                            className="relative flex max-w-[24rem] flex-col overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+                            className="m-4 md:m-0 relative flex flex-col overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
                             <div className="relative m-0 overflow-hidden text-gray-700 bg-transparent rounded-none shadow-none bg-clip-border">
                                 <img
                                     src={element.thumbnail}
                                     alt="thumbnail"
-                                    className="h-64" />
+                                    className="h-64 w-full" />
                             </div>
                             <div className="p-6">
                                 <div className="h-16">
