@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import { useContext } from "react";
@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 
 const Login = () => {
     const { login, googleLogin } = useContext(AuthContext);
+    const navigate = useNavigate();
     const handleLogin = e => {
         e.preventDefault();
         const form = e.target;
@@ -23,6 +24,8 @@ const Login = () => {
                         showConfirmButton: false,
                         timer: 1500
                     });
+                    form.reset();
+                    navigate("/")
                 }
             })
             .catch(err=>{
@@ -46,6 +49,7 @@ const Login = () => {
                         showConfirmButton: false,
                         timer: 1500
                     });
+                    navigate("/");
                 }
             })
             .catch(err=>{

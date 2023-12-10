@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import { useContext } from "react";
@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 
 const Register = () => {
     const { register, googleLogin } = useContext(AuthContext);
+    const navigate = useNavigate();
     const handleRegister = e => {
         e.preventDefault();
         const form = e.target;
@@ -24,6 +25,8 @@ const Register = () => {
                         timer: 1500
                     });
                 }
+                form.reset();
+                navigate("/login");
             })
             .catch(err => {
                 Swal.fire({
@@ -47,6 +50,7 @@ const Register = () => {
                         showConfirmButton: false,
                         timer: 1500
                     });
+                    navigate("/");
                 }
             })
             .catch(err => {
