@@ -4,6 +4,7 @@ import Homepage from "../Pages/Homepage/Homepage";
 import Post from "../Pages/Homepage/Post/Post";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import AllBlogs from "../Pages/AllBlogs/AllBlogs";
 export const routes = createBrowserRouter([
     {
         path: "/",
@@ -17,6 +18,10 @@ export const routes = createBrowserRouter([
                 path: "/post/:id",
                 element: <Post></Post>,
                 loader: ({params}) => fetch(`http://localhost:5000/post/${params.id}`)
+            },
+            {
+                path: "/blogs",
+                element: <AllBlogs></AllBlogs>
             }
         ]
     },
@@ -27,5 +32,6 @@ export const routes = createBrowserRouter([
     {
         path: "/register",
         element: <Register></Register>
-    }
+    },
+    
 ])

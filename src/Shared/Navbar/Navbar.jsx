@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../Logo/Logo";
-import { useContext, useReducer } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../Context/ContextProvider";
 import Swal from "sweetalert2";
 
@@ -24,7 +24,7 @@ const Navbar = () => {
     const links =
         <>
             <li><NavLink to='/'>Home</NavLink></li>
-            <li><NavLink to='/blog'>Blog</NavLink></li>
+            <li><NavLink to='/blogs'>All Blogs</NavLink></li>
             <li><NavLink to='/single'>Single Post</NavLink></li>
             <li><NavLink to='/pages'>Pages</NavLink></li>
             <li><NavLink to='/contact'>Contact</NavLink></li>
