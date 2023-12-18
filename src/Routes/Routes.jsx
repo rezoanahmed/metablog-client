@@ -5,6 +5,7 @@ import Post from "../Pages/Homepage/Post/Post";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import AllBlogs from "../Pages/AllBlogs/AllBlogs";
+import PrivateRoute from "./PrivateRoute";
 export const routes = createBrowserRouter([
     {
         path: "/",
@@ -16,7 +17,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: "/post/:id",
-                element: <Post></Post>,
+                element: <PrivateRoute><Post></Post></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/post/${params.id}`)
             },
             {

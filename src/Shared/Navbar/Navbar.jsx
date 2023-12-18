@@ -25,8 +25,6 @@ const Navbar = () => {
         <>
             <li><NavLink to='/'>Home</NavLink></li>
             <li><NavLink to='/blogs'>All Blogs</NavLink></li>
-            <li><NavLink to='/single'>Single Post</NavLink></li>
-            <li><NavLink to='/pages'>Pages</NavLink></li>
             <li><NavLink to='/contact'>Contact</NavLink></li>
             <input type="text" placeholder="Search" className="border p-2 rounded-md bg-base-200" />
 
