@@ -26,7 +26,7 @@ const Latest = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {
-                    posts?.map(element => <>
+                    posts?.slice(0,6).map(element => <>
                         <div
                             className="m-4 md:m-0 relative flex flex-col overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
                             <div className="relative m-0 overflow-hidden text-gray-700 bg-transparent rounded-none shadow-none bg-clip-border">

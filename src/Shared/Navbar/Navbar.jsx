@@ -1,8 +1,26 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Logo from "../Logo/Logo";
+import { useContext, useReducer } from "react";
+import { AuthContext } from "../../Context/ContextProvider";
+import Swal from "sweetalert2";
 
 
 const Navbar = () => {
+    const { user, logout } = useContext(AuthContext);
+    // console.log(user);
+    const handleLogout = () => {
+        logout()
+            .then(userCredentials => {
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Logout Succeeded",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+
+            })
+    }
     const links =
         <>
             <li><NavLink to='/'>Home</NavLink></li>
@@ -33,7 +51,39 @@ const Navbar = () => {
                                 {links}
                             </ul>
                         </div>
-                        <input type="checkbox" className="toggle toggle-md" />
+                        {
+                            user ?
+                                <div className="dropdown dropdown-end">
+                                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                        <div className="w-10 rounded-full">
+                                            {
+                                                user.photoURL ?
+                                                    <img alt={user?.displayName} src={user.photoURL} />
+                                                    :
+                                                    <img alt={user?.displayName} src='https://i.ibb.co/Bcjq85V/user.png' />
+
+
+                                            }
+                                        </div>
+                                    </div>
+                                    <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-64">
+                                        <li>
+                                            {
+                                                user?.displayName ?
+                                                    <p className="text-lg font-bold">{user.displayName}</p>
+                                                    :
+                                                    <p className="text-lg font-bold">User</p>
+
+                                            }
+                                        </li>
+                                        <li><a>Settings</a></li>
+                                        <li><button onClick={handleLogout}>Logout</button></li>
+                                    </ul>
+                                </div>
+                                :
+
+                                <Link className="btn btn-sm" to='/login'>Login</Link>
+                        }
                     </div>
                 </div>
                 <div className="drawer-side">
